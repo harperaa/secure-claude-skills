@@ -9,6 +9,10 @@ A collection of specialized security skills that implement enterprise-grade secu
 
 ## 🎯 What This Is
 
+This package is the core security engine of the [Secure Vibe Coding OS](https://github.com/harperaa/secure-vibe-coding-OS)
+
+Also, this package and the Secure Vibe Coding OS are part of the [Secure Vibe Coding Masterclass](https://allenharper.com) by [Dr. Allen Harper](https://www.linkedin.com/in/drallenharper/). 
+
 This package provides specialized Claude Code skills that teach Claude how to implement:
 
 - **CSRF Protection** - Cross-Site Request Forgery prevention
@@ -20,6 +24,20 @@ This package provides specialized Claude Code skills that teach Claude how to im
 - **Payment Security** - Clerk Billing and Stripe security
 - **Dependency Security** - Supply chain protection
 - **Security Testing** - Automated security verification
+
+**Plus Security Awareness Skills:**
+
+In addition to implementation skills, this package includes comprehensive **Security Awareness** skills that help Claude understand *why* AI-generated code is insecure:
+
+- **Awareness Overview** - Statistics, research, and real-world breach examples
+- **Injection Vulnerabilities** - SQL injection, command injection, XSS with real attack scenarios
+- **Auth Vulnerabilities** - Broken authentication patterns and credential storage risks
+- **Information Leakage** - Error message exposure and logging vulnerabilities
+- **Supply Chain Risks** - Dependency confusion and malicious packages
+- **Business Logic Flaws** - Race conditions and integer overflow examples
+- **Resource Exhaustion** - DoS vulnerabilities and resource abuse
+
+These awareness skills educate Claude about the **45% vulnerability rate in AI-generated code** (Veracode 2024), helping it understand security risks before implementing solutions.
 
 Each skill provides Claude with deep knowledge of security patterns, common vulnerabilities, and secure implementation approaches specific to the Next.js + Clerk + Convex stack.
 
@@ -230,6 +248,7 @@ Claude Code: I'll implement rate limiting using the rate-limiting skill.
 | **payment-security** | Clerk Billing/Stripe | "payment security", "PCI compliance", "Stripe" |
 | **dependency-security** | Supply chain protection | "dependencies", "npm audit", "vulnerabilities" |
 | **security-testing** | Automated verification | "security testing", "test security", "verify" |
+| **security-awareness** | Understanding AI code security risks | "vibe coding security", "AI vulnerabilities", "why AI insecure" |
 
 ### Triggering Skills
 
@@ -297,7 +316,15 @@ your-project/
 │       │   ├── auth-security/
 │       │   ├── payment-security/
 │       │   ├── dependency-security/
-│       │   └── security-testing/
+│       │   ├── security-testing/
+│       │   └── security-awareness/  (7 awareness sub-skills)
+│       │       ├── awareness-overview/
+│       │       ├── injection-vulnerabilities/
+│       │       ├── auth-vulnerabilities/
+│       │       ├── information-leakage/
+│       │       ├── supply-chain-risks/
+│       │       ├── business-logic-flaws/
+│       │       └── resource-exhaustion/
 │       └── your-custom-skill.md   (Your skills - untouched)
 ```
 

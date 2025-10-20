@@ -124,6 +124,52 @@ git commit -m "Update security skills"
 
 ---
 
+### Alternative: Install Directly from GitHub
+
+Don't want to use npm? Install directly from GitHub:
+
+#### Method A: Git Subtree (Stay Synced)
+
+```bash
+# Install skills with sync
+git subtree add --prefix=.claude/skills/security \
+  https://github.com/harperaa/secure-claude-skills.git main --squash
+
+# Update later
+git subtree pull --prefix=.claude/skills/security \
+  https://github.com/harperaa/secure-claude-skills.git main --squash
+```
+
+#### Method B: Git Submodule (Versioned)
+
+```bash
+# Install as submodule
+git submodule add https://github.com/harperaa/secure-claude-skills.git \
+  .claude/skills/security
+
+# Update later
+cd .claude/skills/security && git pull origin main
+```
+
+#### Method C: Simple Clone (No Sync)
+
+```bash
+# Clone directly
+git clone https://github.com/harperaa/secure-claude-skills.git \
+  .claude/skills/security
+
+# Remove git history (optional)
+rm -rf .claude/skills/security/.git
+```
+
+#### Method D: Download ZIP
+
+1. Go to https://github.com/harperaa/secure-claude-skills
+2. Click "Code" → "Download ZIP"
+3. Extract to `.claude/skills/security/`
+
+---
+
 ### Updating Skills
 
 If you installed with sync enabled:
@@ -294,6 +340,7 @@ MIT License - See [LICENSE](LICENSE) for details
 
 ## ⚡ Quick Reference
 
+### npm Installation
 ```bash
 # Install (copy mode)
 npx secure-claude-skills init
@@ -314,8 +361,23 @@ npx secure-claude-skills init --force
 npx secure-claude-skills --help
 ```
 
+### GitHub Direct Installation
+```bash
+# Subtree (stay synced)
+git subtree add --prefix=.claude/skills/security \
+  https://github.com/harperaa/secure-claude-skills.git main --squash
+
+# Submodule (versioned)
+git submodule add https://github.com/harperaa/secure-claude-skills.git \
+  .claude/skills/security
+
+# Clone (no sync)
+git clone https://github.com/harperaa/secure-claude-skills.git \
+  .claude/skills/security
+```
+
 ---
 
-**Built with 🔒 by [Allen Harper](https://github.com/harperaa)**
+**Built with 🔒 by [Dr. Allen Harper](https://github.com/harperaa)**
 
 *Making AI-generated code secure by default*

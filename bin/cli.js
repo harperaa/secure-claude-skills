@@ -65,19 +65,39 @@ function copyInstall() {
   // Create target directory
   createDirectory(INSTALL_PATH);
 
-  // Copy skills from npm package to target
+  // Copy skills from npm package root to target
   const packageRoot = path.join(__dirname, '..');
-  const skillsSource = path.join(packageRoot, 'skills');
 
-  if (!pathExists(skillsSource)) {
-    log('❌ Skills directory not found in package', 'red');
+  // List of directories to exclude (non-skill directories)
+  const excludeDirs = ['bin', 'examples', 'node_modules', '.git', '.github'];
+
+  // Get all entries in package root
+  const entries = fs.readdirSync(packageRoot);
+  let skillCount = 0;
+
+  // Copy only skill directories
+  for (const entry of entries) {
+    const fullPath = path.join(packageRoot, entry);
+    const stats = fs.statSync(fullPath);
+
+    // Skip if not a directory or if in exclude list
+    if (!stats.isDirectory() || excludeDirs.includes(entry)) {
+      continue;
+    }
+
+    // Copy skill directory
+    const targetPath = path.join(INSTALL_PATH, entry);
+    copyRecursive(fullPath, targetPath);
+    skillCount++;
+  }
+
+  if (skillCount === 0) {
+    log('❌ No skills found in package', 'red');
     process.exit(1);
   }
 
-  // Copy all skills
-  copyRecursive(skillsSource, INSTALL_PATH);
-
   log(`✅ Security skills installed to ${INSTALL_PATH}`, 'green');
+  log(`   Installed ${skillCount} skills`, 'cyan');
   log('   This is a one-time copy. To get updates, re-run this command.', 'yellow');
 }
 

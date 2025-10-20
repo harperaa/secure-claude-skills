@@ -16,20 +16,20 @@ secure-claude-skills-package/
 ├── README.md                    ✅ Comprehensive package documentation
 ├── SETUP_GUIDE.md              ✅ Step-by-step setup instructions
 ├── COMPLETION_SUMMARY.md       ✅ This file
+├── .npmignore                   ✅ Exclude dev files from npm
 ├── bin/
 │   └── cli.js                   ✅ CLI installer tool (executable)
-├── skills/                      ✅ All 11 security skills
-│   ├── auth-security/
-│   ├── csrf-protection/
-│   ├── dependency-security/
-│   ├── error-handling/
-│   ├── input-validation/
-│   ├── payment-security/
-│   ├── rate-limiting/
-│   ├── security-awareness/
-│   ├── security-headers/
-│   ├── security-overview/
-│   └── security-testing/
+├── auth-security/               ✅ Security skills at root (for git subtree)
+├── csrf-protection/
+├── dependency-security/
+├── error-handling/
+├── input-validation/
+├── payment-security/
+├── rate-limiting/
+├── security-awareness/
+├── security-headers/
+├── security-overview/
+├── security-testing/
 └── examples/                    ✅ Usage documentation
     ├── quick-start.md
     └── skills-reference.md

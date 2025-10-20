@@ -37,7 +37,17 @@
   },
   "files": [
     "bin/",
-    "skills/",
+    "auth-security/",
+    "csrf-protection/",
+    "dependency-security/",
+    "error-handling/",
+    "input-validation/",
+    "payment-security/",
+    "rate-limiting/",
+    "security-awareness/",
+    "security-headers/",
+    "security-overview/",
+    "security-testing/",
     "examples/",
     "README.md",
     "LICENSE"
